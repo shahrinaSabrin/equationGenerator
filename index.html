@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>document</title>
+  <style>
+			div{
+      font-size: 24px;
+			}
+    
+  </style>
+</head>
+<body>
+	<h3>Hey Genius! Are you ready for fun challenges? Lets solve these "easy peasy lemon squeezy" problems. </h3>
+  <div id="equation"></div>
+  <script>
+    function generateEquation() {
+      let x, y;
+
+			x = Math.floor(Math.random() * 8) + 1; 
+			y = Math.floor(Math.random() * (9-x-1)) + 1; 
+
+      const equationText = `${x} + ${y} = _____`;
+
+      const equationDiv = document.getElementById('equation');
+      const newEquation = document.createElement('div');
+			newEquation.style.padding = '5px';
+      newEquation.textContent = equationText;
+      equationDiv.appendChild(newEquation);
+    }
+
+    // Event Lister for genrating new equations.
+    document.addEventListener("keypress", function(event) {
+      if (event.key === 'Enter') {
+        generateEquation();
+      }
+    });
+
+    // Generate the initial equation
+    generateEquation();
+  </script>
+</body>
+</html>
